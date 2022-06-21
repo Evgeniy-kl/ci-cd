@@ -4,10 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    sudo chown -R $USERNAME /Users/$USERNAME/Library/Caches/pip &&
-                    pip install --upgrade pip &&
-                    python -m pip install --user pipenv &&
-                    cd backend &&
+                    sudo pip install -H pipenv &&
                     pipenv install --system --deploy &&
                     pytest
                 """
