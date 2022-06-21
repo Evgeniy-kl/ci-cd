@@ -10,6 +10,4 @@ RUN pip install pipenv
 RUN pipenv install --system --deploy
 
 COPY . /code/
-COPY entrypoint.sh ./
-RUN ["chmod", "+x", "entrypoint.sh"]
-ENTRYPOINT ["./entrypoint.sh"]
+RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
