@@ -5,6 +5,6 @@ stage('test') {
           }
      }
      steps {
-          sh 'pip insta pipenv && pipenv shell && pipenv install --deploy && pytest'
+          sh 'pip install pipenv && pipenv shell && pipenv install --deploy  && pytest'
      }
 }
