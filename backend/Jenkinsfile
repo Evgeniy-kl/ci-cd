@@ -1,12 +1,6 @@
-
-pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
-    stages {
-        stage('testing') {
-            steps {
-                sh 'pipenv install --deploy'
-                sh 'pytest'
-            }
-        }
-    }
+stage('test') {
+     withPythonEnv('python3')
+     {
+        sh 'python --version'
+      }
 }
