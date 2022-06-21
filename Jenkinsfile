@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'python --version '
                 sh 'flake8 . '
+                sh 'pytest'
             }
         }
     }
