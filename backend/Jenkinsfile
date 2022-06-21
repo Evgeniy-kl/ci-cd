@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('testing') {
             steps {
-                sh 'pipenv shell && pipenv install && pipenv lock'
+                sh 'pipenv install --deploy'
                 sh 'pytest'
             }
         }
