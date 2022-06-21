@@ -1,10 +1,9 @@
 pipeline {
-    agent { docker { image 'python:3.10.1-alpine' } }
+    agent { docker { image 'python:3.10' } }
     stages {
         stage('build') {
             steps {
                 sh """
-                    apt-get install sudo -y &&
                     sudo -H pip3 install --upgrade pip &&
                     sudo -H pip3 install pipenv &&
                     pipenv install --system --deploy &&
