@@ -1,7 +1,7 @@
-stage "Build Tests"
-{
-    dir ('scripts')
-    {
-        sh('./runtest.sh')
+stage("test PythonEnv") {
+
+    withPythonEnv('python3') {
+        sh 'pip install pytest'
+        sh 'pytest mytest.py'
     }
 }
