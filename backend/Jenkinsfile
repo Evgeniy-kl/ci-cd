@@ -1,5 +1,7 @@
-checkout scm
 stage "Build Tests"
-dir ('scripts') {
-    sh('./runtest.sh')
+{
+    dir ('scripts')
+    {
+        sh('./runtest.sh')
+    }
 }
