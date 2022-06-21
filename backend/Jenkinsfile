@@ -1,6 +1,14 @@
 stage('test') {
-     withPythonEnv('python3')
-     {
-        sh 'python --version'
-      }
+     agent {
+          docker {
+               image 'python'
+          }
+     }
+     steps {
+          sh '
+           pip install pipenv &&
+           pipenv shell &&
+           pipenv install --deploy &&
+           pytest'
+     }
 }
