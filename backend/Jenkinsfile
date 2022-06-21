@@ -4,9 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    python -m pip install --user pipenv &&
-                    cd backend &&
-                    pipenv install --system --deploy &&
+                    pip install fastapi pytest &&
                     pytest
                 """
             }
