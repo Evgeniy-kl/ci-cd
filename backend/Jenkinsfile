@@ -1,10 +1,10 @@
-node
-{
-   stage('Run pytest')
-   {
-       sh """sudo python3 -m pip uninstall pip && sudo apt install python3-pip --reinstall &&
-            sudo -H pip install -U pipenv &&
-            pipenv install --deploy &&
-            pytest """
-   }
+pipeline {
+    agent { docker { image 'python:3.10.1-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
 }
