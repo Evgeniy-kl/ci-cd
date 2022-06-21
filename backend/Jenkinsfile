@@ -4,8 +4,8 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    pip install --no-cache-dir --upgrade pip &&
-                    pip install --no-cache-dir pipenv &&
+                    sudo -H pip3 install --upgrade pip &&
+                    sudo -H pip3 install pipenv &&
                     pipenv install --system --deploy &&
                     pytest
                 """
