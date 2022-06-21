@@ -1,10 +1,5 @@
-stage('test') {
-     agent {
-          docker {
-               image 'python'
-          }
-     }
-     steps {
-          ["sh", "-c", "pip install pipenv && pipenv install --deploy && pytest"].execute()
-     }
+checkout scm
+stage "Build Tests"
+dir ('scripts') {
+    sh('./build.sh')
 }
