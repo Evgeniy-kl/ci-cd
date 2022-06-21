@@ -11,3 +11,5 @@ RUN pipenv install --system --deploy
 
 COPY . /code/
 RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
+RUN ["flake8", "/code/", "--junitxml=reports/result.xml"]
+RUN ["black", "/code/", "--junitxml=reports/result.xml"]
