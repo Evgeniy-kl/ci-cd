@@ -12,7 +12,6 @@ pytest = "*"
 uvicorn = "*"
 sqlalchemy = "*"
 pydantic = "*"
-psycopg2 = "*"
 requests = "*"
 
 [dev-packages]
