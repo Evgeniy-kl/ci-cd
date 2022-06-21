@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    sudo pip install --upgrade pip &&
+                    pip install --upgrade pip &&
                     python -m pip install --user pipenv &&
                     cd backend &&
                     pipenv install --system --deploy &&
