@@ -1,13 +1,11 @@
 pipeline {
-    agent { docker { image 'python:3.10' } }
+    agent { dockerfile true }
     stages {
         stage('build') {
             steps {
                 sh """
-                    sudo -H pip3 install --upgrade pip &&
-                    sudo -H pip3 install pipenv &&
-                    pipenv install --system --deploy &&
-                    pytest
+                    python --version
+                    flake8 .
                 """
             }
         }
