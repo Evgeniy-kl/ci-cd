@@ -1,11 +1,10 @@
 stage('test') {
-
      agent {
           docker {
-               image 'qnib/pytest'
-                }
-        }
+               image 'python'
+          }
+     }
      steps {
           sh 'pipenv install --deploy && pytest'
-        }
+     }
 }
