@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 
 WORKDIR /code/
-COPY backend/Pipfile Pipfile.lock ./
+COPY Pipfile Pipfile.lock ./
 
 RUN pip install pipenv
 RUN pipenv install --system --deploy
