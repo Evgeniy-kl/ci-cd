@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh """
+                    sudo pip install pipenv &&
+                    pipenv install --deploy &&
+                    pytest
+                """
             }
         }
     }
