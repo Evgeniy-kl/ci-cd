@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version '
-                sh '  flake8 . '
+                sh 'flake8 . '
             }
         }
     }
