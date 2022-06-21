@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    pip install pipenv &&
+                    pip install pipenv --user &&
                     cd backend &&
                     pipenv install --system --deploy &&
                     pytest
