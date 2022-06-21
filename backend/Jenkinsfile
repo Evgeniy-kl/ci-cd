@@ -2,8 +2,8 @@ node
 {
    stage('Run pytest')
    {
-       sh """ sudo pip3 install pipenv
-            pipenv install --deploy
+       sh """ sudo pip3 install pipenv &&
+            pipenv install --deploy &&
             pytest """
    }
 }
