@@ -4,6 +4,8 @@ pipeline {
         stage('build') {
             steps {
                 sh """
+                    virtualenv .venv &&
+                    source .venv/bin/activate &&
                     pip3 install pipenv --user &&
                     pipenv install --system --deploy &&
                     pytest
