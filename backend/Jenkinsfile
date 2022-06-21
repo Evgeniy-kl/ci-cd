@@ -1,10 +1,6 @@
 stage('test') {
-     agent {
-          docker {
-               image 'python'
-          }
-     }
-     steps {
-          sh 'virtualenv venv && . venv/bin/activate && pip install pipenv && pipenv install --deploy && pytest'
-     }
+     withPythonEnv('python3')
+     {
+        sh 'python --version'
+      }
 }
