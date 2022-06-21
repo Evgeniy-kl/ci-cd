@@ -1,7 +1,7 @@
 from typing import List
 
 import uvicorn
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Response
 from sqlalchemy.orm import Session
 
 import api
@@ -30,6 +30,11 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 @app.post("/users/", response_model=UserItem)
 def create_user(user: UserItem, db: Session = Depends(get_db)):
     return api.create_user(db=db, user=user)
+
+
+@app.get("/healthcheck/")
+def healthcheck():
+    return Response(content='', status_code=200)
 
 
 if __name__ == "__main__":
