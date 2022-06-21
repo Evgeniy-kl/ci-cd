@@ -5,10 +5,6 @@ stage('test') {
           }
      }
      steps {
-          sh '
-           pip install pipenv &&
-           pipenv shell &&
-           pipenv install --deploy &&
-           pytest'
+          ["sh", "-c", "pip install pipenv && pipenv install --deploy && pytest"].execute()
      }
 }
