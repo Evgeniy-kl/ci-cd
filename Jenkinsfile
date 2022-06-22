@@ -27,11 +27,23 @@ pipeline {
     }
     stage('Deploy Image') {
       steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
+        script
+
+        {
+          docker.withRegistry( '', registryCredential )
+          {
             dockerImage.push()
              dockerImage.push('latest')
           }
+        }
+      }
+    }
+     stage('Deploy image to Kubernetes') {
+      steps{
+        script
+        {
+        kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
+
         }
       }
     }

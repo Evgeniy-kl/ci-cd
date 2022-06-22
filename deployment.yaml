@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp-deployment
+  labels:
+    app: pythonapp
+spec:
+  replicas: 1
+  selectors:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+  spec:
+    containers:
+      - name: pythonserver
+        image: evgeniypython123/evgeniy:latest
+        ports:
+          - containerPort: 3000
