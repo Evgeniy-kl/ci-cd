@@ -9,11 +9,6 @@ pipeline {
                 sh 'pytest'
             }
         }
-        stage('build docker image') {
-            steps {
-                sh 'docker build -t $dockerfile'
-            }
-        }
         stage('login dockerhub') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -21,7 +16,7 @@ pipeline {
         }
         stage('push docker image') {
             steps {
-                sh 'docker push fastapi:$BUILD_NUMBER'
+                sh 'docker push fastapi/ci-cd:$BUILD_NUMBER'
             }
         }
     }
