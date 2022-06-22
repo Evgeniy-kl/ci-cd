@@ -38,14 +38,5 @@ pipeline {
         }
       }
     }
-     stage('Deploy image to Kubernetes') {
-      steps{
-        script
-        {
-        kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
-
-        }
-      }
-    }
   }
 }
