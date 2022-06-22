@@ -1,6 +1,6 @@
 pipeline {
     agent { dockerfile true }
-    environment {DOCKERHUB_CREDENTIALS = credentials('evgeniyklimovich4-docker-hub')}
+    environment {DOCKERHUB_CREDENTIALS = credentials('klimovichevgeniy-docker-hub')}
     stages {
         stage('run linters and tests') {
             steps {
