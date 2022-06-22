@@ -6,6 +6,18 @@ pipeline {
   }
   agent any
   stages {
+
+  stage('Lint and Test')
+        {
+        agent { dockerfile true }
+            steps
+            {
+                sh 'black .'
+                sh 'flake8 . '
+                sh 'pytest'
+            }
+
+        }
     stage('Building image') {
       steps{
         script {
@@ -21,13 +33,6 @@ pipeline {
              dockerImage.push('latest')
           }
         }
-      }
-    }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $imagename:$BUILD_NUMBER"
-         sh "docker rmi $imagename:latest"
-
       }
     }
   }
