@@ -1,7 +1,7 @@
 pipeline {
   environment {
     imagename = "evgeniy/fastapi"
-    registryCredential = 'Jenkins-evgeniy-id'
+    registryCredential = 'klimovichevgeniy-docker-hub'
     dockerImage = ''
   }
   agent any
