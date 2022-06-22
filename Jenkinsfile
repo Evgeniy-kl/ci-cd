@@ -11,7 +11,7 @@ pipeline {
         }
         stage('build docker image') {
             steps {
-                sh 'docker build -t backend/Dockerfile:$BUILD_NUMBER .'
+                sh 'docker build -t $dockerfile'
             }
         }
         stage('login dockerhub') {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('push docker image') {
             steps {
-                sh 'docker push backend/Dockerfile:$BUILD_NUMBER'
+                sh 'docker push fastapi:$BUILD_NUMBER'
             }
         }
     }
