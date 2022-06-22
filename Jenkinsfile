@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "evgeniy"
+    imagename = "evgeniypython123/evgeniy"
     registryCredential = 'klimovichevgeniy-docker-hub'
     dockerImage = ''
   }
