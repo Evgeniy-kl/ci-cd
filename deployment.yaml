@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pythonapp-deployment
+  name: python-webapp
   labels:
-    app: pythonapp
+    app: web
 spec:
-  replicas: 1
-  selectors:
+  replicas: 2
+  selector:
     matchLabels:
-      app: pythonapp
+      app: web
   template:
     metadata:
       labels:
-        app: pythonapp
-  spec:
-    containers:
-      - name: pythonserver
-        image: evgeniypython123/evgeniy:latest
+        app: web
+    spec:
+      containers:
+      - name: webapp
+        image: nginx:1.14.2
         ports:
-          - containerPort: 3000
+        - containerPort: 5000
