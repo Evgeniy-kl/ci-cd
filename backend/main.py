@@ -34,7 +34,7 @@ def create_user(user: UserItem, db: Session = Depends(get_db)):
 
 @app.get("/healthcheck/")
 def healthcheck():
-    return Response(content='', status_code=200)
+    return Response(content="", status_code=200)
 
 
 if __name__ == "__main__":
